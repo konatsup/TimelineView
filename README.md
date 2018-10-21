@@ -1,5 +1,5 @@
 # TimelineView
-<img src="https://github.com/Konatsup/TimelineView/blob/master/arts/screenshot.png" alt="alt text" style="width:200;height:200">
+<img src="https://github.com/Konatsup/TimelineView/arts/screenshot.png" alt="alt text" style="width:200;height:200">
 
 ## OverView
 TimelineView is view of timeline.
