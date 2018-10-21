@@ -128,7 +128,6 @@ public class TimelineView extends FrameLayout implements AdapterView.OnItemClick
         return trackList.get(position);
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(mContext, "Clicked", Toast.LENGTH_SHORT).show();
