@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         tv.timelineType = TimelineType.TIME
         tv.trackList = ArrayList<Track>()
         tv.currentPosition = 0
-        tv.columnCount = 50
+        tv.columnCount = 30
 
         val map1 = HashMap<Int, Composition>()
         val map2 = HashMap<Int, Composition>()
@@ -32,15 +32,14 @@ class MainActivity : AppCompatActivity() {
         track1.addComposition(7, comp2)
 
         val comp3 = AudioComposition(3)
-        val comp4 = MidiComposition(5)
-        track2.addComposition(50, comp3)
-        track2.addComposition(67, comp4)
+        val comp4 = MidiComposition(12)
+        track2.addComposition(0, comp3)
+        track2.addComposition(5, comp4)
 
         val comp5 = AudioComposition(3)
         val comp6 = MidiComposition(5)
-        track3.addComposition(123, comp5)
-        track3.addComposition(133, comp6)
-
+        track3.addComposition(14, comp5)
+        track3.addComposition(23, comp6)
 
         tv.addTrack(track1)
         tv.addTrack(track2)
@@ -53,13 +52,6 @@ class MainActivity : AppCompatActivity() {
         tv.addEmptyTrack()
         tv.addEmptyTrack()
 
-
-    }
-
-    fun addCompositionToMap(map: HashMap<Int, Composition>, duration: Int, startPosition: Int) {
-        val composition = AudioComposition(3)
-        composition.duration = duration
-        map.put(startPosition, composition)
     }
 
 }

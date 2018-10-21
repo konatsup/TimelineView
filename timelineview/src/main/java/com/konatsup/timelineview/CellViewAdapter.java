@@ -37,25 +37,23 @@ public class CellViewAdapter extends RecyclerView.Adapter<CellViewHolder> {
     }
 
     /* .forEach() will perform when API level is higher than 24 */
-    public void update(List<Track> trackList, int coloumCount) {
+    public void update(List<Track> trackList, final int coloumCount) {
         mCellList = new ArrayList<>(Collections.nCopies(coloumCount * trackList.size(), new Cell(Color.DKGRAY)));
-        trackList.forEach(new Consumer<Track>() {
-            @Override
-            public void accept(Track track) {
-                track.getCompositionMap().forEach(new BiConsumer<Integer, Composition>() {
-                    //                    int a = index * coloumCount;
-                    @Override
-                    public void accept(Integer position, Composition composition) {
-                        for (int i = 0; i < composition.getDuration(); i++) {
-                            Cell cell = new Cell(composition);
-                            if (i == 0) cell.setStart(true);
-                            if (i == composition.getDuration() - 1) cell.setEnd(true);
-                            mCellList.set(position + i, cell);
-                        }
+        for (int i = 0; i < trackList.size(); i++) {
+            final int finalI = i;
+            trackList.get(i).getCompositionMap().forEach(new BiConsumer<Integer, Composition>() {
+                final int startPosition = finalI * coloumCount;
+                @Override
+                public void accept(Integer position, Composition composition) {
+                    for (int j = 0; j < composition.getDuration(); j++) {
+                        Cell cell = new Cell(composition);
+                        if (j == 0) cell.setStart(true);
+                        if (j == composition.getDuration() - 1) cell.setEnd(true);
+                        mCellList.set(startPosition + position + j, cell);
                     }
-                });
-            }
-        });
+                }
+            });
+        }
         notifyDataSetChanged();
     }
 
