@@ -89,7 +89,7 @@ public class CellViewAdapter extends RecyclerView.Adapter<CellViewHolder> {
     public void onBindViewHolder(@NonNull CellViewHolder itemHolder, int position) {
         Cell item = mCellList.get(position);
         itemHolder.setCellColor(item.getColor());
-        itemHolder.setText(position);
+        itemHolder.setImage(item.getResId());
         itemHolder.setVisibility(item.isStart(), item.isEnd());
     }
 
