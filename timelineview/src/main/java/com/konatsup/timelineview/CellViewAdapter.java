@@ -38,16 +38,19 @@ public class CellViewAdapter extends RecyclerView.Adapter<CellViewHolder> {
 
     /* .forEach() will perform when API level is higher than 24 */
     public void update(List<Track> trackList, int coloumCount) {
-        mCellList = new ArrayList<>(Collections.nCopies(coloumCount*trackList.size(), new Cell(Color.DKGRAY)));
+        mCellList = new ArrayList<>(Collections.nCopies(coloumCount * trackList.size(), new Cell(Color.DKGRAY)));
         trackList.forEach(new Consumer<Track>() {
             @Override
             public void accept(Track track) {
                 track.getCompositionMap().forEach(new BiConsumer<Integer, Composition>() {
-//                    int a = index * coloumCount;
+                    //                    int a = index * coloumCount;
                     @Override
                     public void accept(Integer position, Composition composition) {
                         for (int i = 0; i < composition.getDuration(); i++) {
-                            mCellList.set(position + i, new Cell(composition));
+                            Cell cell = new Cell(composition);
+                            if (i == 0) cell.setStart(true);
+                            if (i == composition.getDuration() - 1) cell.setEnd(true);
+                            mCellList.set(position + i, cell);
                         }
                     }
                 });
@@ -85,8 +88,9 @@ public class CellViewAdapter extends RecyclerView.Adapter<CellViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CellViewHolder itemHolder, int position) {
         Cell item = mCellList.get(position);
-        itemHolder.setCellColor(item.color);
+        itemHolder.setCellColor(item.getColor());
         itemHolder.setText(position);
+        itemHolder.setVisibility(item.isStart(), item.isEnd());
     }
 
     @Override
