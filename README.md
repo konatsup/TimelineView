@@ -14,19 +14,19 @@ This library is developed for creating music or movie edit App on Android.
 Add it in your root build.gradle at the end of repositories:
 ```.gradle
 allprojects {
-   		repositories {
-   			...
-   			maven { url 'https://jitpack.io' }
-   		}
+   repositories {
+         ...
+   		maven { url 'https://jitpack.io' }
+   }
 }
 ```
 if you have some error, add this build.gradle:
 ```
 buildscript {
-    repositories {
-        ...
-        maven { url "https://jitpack.io" }
-    }
+   repositories {
+         ...
+         maven { url "https://jitpack.io" }
+   }
 }
 ```
 
