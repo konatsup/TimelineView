@@ -9,7 +9,42 @@ You can swipe and scroll view.
 This library is developed for creating music or movie edit App on Android. 
 
 ## Usage
+### Step 1. Add the JitPack repository to your build file
 
+Add it in your root build.gradle at the end of repositories:
+```.gradle
+allprojects {
+   		repositories {
+   			...
+   			maven { url 'https://jitpack.io' }
+   		}
+}
+```
+if you have some error, add this build.gradle:
+```
+buildscript {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+
+### Step 2. Add the dependency
+```kotlin
+dependencies {
+        implementation 'com.github.konatsup:timelineview:-SNAPSHOT'
+}
+```
+
+DONE!
+
+
+### Step 3. Use the library
+
+
+*.xml: 
 ```xml
 <com.konatsup.timelineview.TimelineView
         android:id="@+id/timelineView"
@@ -18,9 +53,10 @@ This library is developed for creating music or movie edit App on Android.
      
 ```
 
+*kt: 
 ```kotlin
 
-val tv = findViewById(R.id.timelineView)
+val tv : TimelineView = findViewById(R.id.timelineView)
         tv.timelineType = TimelineType.TIME
         tv.trackList = ArrayList<Track>()
         tv.currentPosition = 0
