@@ -12,11 +12,11 @@ This library is developed for creating music or movie edit App on Android.
 ### Step 1. Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
-```.gradle
+```
 allprojects {
    repositories {
-         ...
-   		maven { url 'https://jitpack.io' }
+        ...
+   	    maven { url 'https://jitpack.io' }
    }
 }
 ```
@@ -24,8 +24,8 @@ if you have some error, add this build.gradle:
 ```
 buildscript {
    repositories {
-         ...
-         maven { url "https://jitpack.io" }
+        ...
+        maven { url "https://jitpack.io" }
    }
 }
 ```
