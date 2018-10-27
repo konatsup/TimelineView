@@ -34,7 +34,7 @@ buildscript {
 ### Step 2. Add the dependency
 ```kotlin
 dependencies {
-        implementation 'com.github.konatsup:timelineview:-SNAPSHOT'
+        implementation 'com.github.konatsup:timelineview:v0.3'
 }
 ```
 
@@ -58,7 +58,7 @@ DONE!
 
 val tv : TimelineView = findViewById(R.id.timelineView)
         tv.timelineType = TimelineType.TIME
-        tv.trackList = ArrayList<Track>()
+        tv.trackList = ArrayList()
         tv.currentPosition = 0
         tv.columnCount = 30
         
