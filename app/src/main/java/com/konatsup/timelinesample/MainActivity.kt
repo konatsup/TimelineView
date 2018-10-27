@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         tv = findViewById(R.id.timelineView)
 
         tv.timelineType = TimelineType.TIME
-        tv.trackList = ArrayList<Track>()
+        tv.trackList = ArrayList()
         tv.currentPosition = 0
         tv.columnCount = 30
 
