@@ -6,11 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.konatsup.timelineview.TimelineView
-        android:id="@+id/timelineView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </com.konatsup.timelineview.TimelineView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/start_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="startButtonOnClick"
+                android:text="Start" />
+
+            <Button
+                android:id="@+id/stop_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="stopButtonOnClick"
+                android:text="Stop" />
+        </LinearLayout>
+
+        <com.konatsup.timelineview.TimelineView
+            android:id="@+id/timelineView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+        </com.konatsup.timelineview.TimelineView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

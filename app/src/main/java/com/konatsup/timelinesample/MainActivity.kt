@@ -2,6 +2,7 @@ package com.konatsup.timelinesample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.konatsup.timelineview.*
 
 class MainActivity : AppCompatActivity() {
@@ -73,6 +74,14 @@ class MainActivity : AppCompatActivity() {
         tv.addEmptyTrack()
         tv.addEmptyTrack()
 
+    }
+
+    fun startButtonOnClick(v : View){
+        tv.play()
+    }
+
+    fun stopButtonOnClick(v : View){
+        tv.stop()
     }
 
 }
