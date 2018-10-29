@@ -9,9 +9,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.FrameLayout
 
-import java.util.ArrayList
-import java.util.HashMap
 import android.widget.Toast
+import java.util.*
 
 class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
 
@@ -27,13 +26,17 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
     var rhythm: Rhythm = Rhythm(4, 4)
     var tempo: Int = 120
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var positionBarView: PositionBarView
-    private val adapter = CellViewAdapter()
-    private val fglm = FixedGridLayoutManager()
-
     val trackCount: Int
         get() = trackList.size
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var positionBarView: PositionBarView
+    private var timer: Timer = Timer()
+
+    private val adapter = CellViewAdapter()
+    private val fglm = FixedGridLayoutManager()
+    private val delay: Long = 0
+    private val period: Long = 100
 
     constructor(context: Context) : super(context) {}
 
@@ -95,6 +98,22 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
         // do Click Action
 
+    }
+
+    fun play() {
+        timer = Timer()
+        timer.scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                handler.post {
+                    currentPosition += 5
+                    positionBarView.position = currentPosition.toInt()
+                }
+            }
+        }, delay, period)
+    }
+
+    fun stop() {
+        timer.cancel()
     }
 
     fun setRhythmNumerator(numerator: Int) {
