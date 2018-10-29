@@ -23,6 +23,8 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
             fglm.totalColumnCount = this.columnCount
         }
 
+    var rhythm: Rhythm = Rhythm(4, 4)
+    var tempo: Int = 120
 
     private lateinit var recyclerView: RecyclerView
     private val adapter = CellViewAdapter()
@@ -86,5 +88,21 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
         // do Click Action
 
+    }
+
+    fun setRhythmNumerator(numerator: Int) {
+        rhythm = Rhythm(numerator, rhythm.denominator)
+    }
+
+    fun setRhythmDenominator(denominator: Int) {
+        rhythm = Rhythm(rhythm.numerator, denominator)
+    }
+
+    fun setRhythm(numerator: Int, denominator: Int) {
+        rhythm = Rhythm(numerator, denominator)
+    }
+
+    companion object {
+        const val DEFAULT_RESOLUTION = 480
     }
 }
