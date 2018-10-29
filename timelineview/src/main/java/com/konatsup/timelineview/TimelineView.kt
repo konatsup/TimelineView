@@ -16,7 +16,7 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
 
     var timelineType: TimelineType = TimelineType.TIME
     var trackList: ArrayList<Track> = ArrayList()
-    var currentPosition: Int = 0
+    var currentPosition: Long = 0
     var columnCount: Int = 0
         set(columnCount) {
             field = columnCount
