@@ -116,6 +116,11 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
         timer.cancel()
     }
 
+    fun backToTop() {
+        currentPosition = 0
+        positionBarView.position = 0
+    }
+
     fun setRhythmNumerator(numerator: Int) {
         rhythm = Rhythm(numerator, rhythm.denominator)
     }
