@@ -84,4 +84,8 @@ class MainActivity : AppCompatActivity() {
         tv.stop()
     }
 
+    fun backToTopButtonOnClick(v : View){
+        tv.backToTop()
+    }
+
 }

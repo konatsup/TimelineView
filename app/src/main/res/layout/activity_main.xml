@@ -21,15 +21,23 @@
                 android:id="@+id/start_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="startButtonOnClick"
-                android:text="Start" />
+                android:background="@android:drawable/ic_media_play"
+                android:onClick="startButtonOnClick" />
 
             <Button
                 android:id="@+id/stop_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="stopButtonOnClick"
-                android:text="Stop" />
+                android:background="@android:drawable/ic_media_pause"
+                android:onClick="stopButtonOnClick" />
+
+            <Button
+                android:id="@+id/back_to_top_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_media_previous"
+                android:onClick="backToTopButtonOnClick" />
+
         </LinearLayout>
 
         <com.konatsup.timelineview.TimelineView
