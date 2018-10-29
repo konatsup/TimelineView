@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 
 import java.util.ArrayList
 import java.util.HashMap
+import android.widget.Toast
 
 class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
 
@@ -27,6 +28,7 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
     var tempo: Int = 120
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var positionBarView: PositionBarView
     private val adapter = CellViewAdapter()
     private val fglm = FixedGridLayoutManager()
 
@@ -41,6 +43,11 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
         val rootView = inflater.inflate(R.layout.timeline_view, this, true)
 
         recyclerView = rootView.findViewById(R.id.recycler_view)
+        positionBarView = rootView.findViewById(R.id.position_bar_view)
+
+        positionBarView.setOnClickListener(OnClickListener {
+            Toast.makeText(context, "Click!!!", Toast.LENGTH_LONG).show()
+        })
 
         adapter.setOnItemClickListener(this)
 

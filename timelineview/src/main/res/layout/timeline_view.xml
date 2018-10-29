@@ -5,4 +5,10 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.konatsup.timelineview.PositionBarView
+        android:id="@+id/position_bar_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark" />
 </FrameLayout>
