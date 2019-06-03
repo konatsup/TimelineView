@@ -31,7 +31,7 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var positionBarView: PositionBarView
-    private var timer: Timer = Timer()
+    private var timer: Timer? = null
 
     private val adapter = CellViewAdapter()
     private val fglm = FixedGridLayoutManager()
@@ -101,8 +101,9 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
     }
 
     fun play() {
+        timer?.let { it.cancel()}
         timer = Timer()
-        timer.scheduleAtFixedRate(object : TimerTask() {
+        timer!!.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 handler.post {
                     currentPosition += 5
@@ -113,7 +114,10 @@ class TimelineView : FrameLayout, AdapterView.OnItemClickListener {
     }
 
     fun stop() {
-        timer.cancel()
+        if(timer != null) {
+            timer!!.cancel()
+            timer = null
+        }
     }
 
     fun backToTop() {
