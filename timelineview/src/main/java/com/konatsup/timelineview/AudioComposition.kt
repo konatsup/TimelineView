@@ -1,3 +1,3 @@
 package com.konatsup.timelineview
 
-class AudioComposition(override var duration: Int) : Composition
+data class AudioComposition(override var duration: Int) : Composition
